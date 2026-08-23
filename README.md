@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# journey
-Click funnel for the LXP
-=======
-# journey.wildglobalization.com
+# [journey.wildglobalization.com](https://journey.wildglobalization.com)
 
 Splash page for the **Wild Globalization Pilot** course. Its one job is to sell the
 course and hand the visitor off to the learning platform at
