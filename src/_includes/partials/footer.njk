@@ -1,0 +1,30 @@
+<footer class="site-footer">
+	<div class="wrap">
+		<div class="site-footer__top">
+			<div class="site-footer__brand">
+				<p class="site-footer__wordmark">Wild<span>Globalization</span></p>
+				<p class="site-footer__blurb">A pan-historical exploration of the six wild forces driving our hyper-globalizing civilization.</p>
+				<a class="button button--accent" href="{{ links.enroll }}" rel="noopener">Enroll for free{% icon "arrow-right", "button__icon" %}</a>
+			</div>
+
+			{% for column in links.footer %}
+			<div class="site-footer__column">
+				<h2 class="site-footer__heading">{{ column.heading }}</h2>
+				<ul>
+					{% for item in column.items %}
+					<li>
+						<a href="{{ item.href }}" rel="noopener">{{ item.label }}</a>
+						<span>{{ item.note }}</span>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endfor %}
+		</div>
+
+		<div class="site-footer__bottom">
+			<p>&copy; {{ buildDate | year }} {{ settings.provider.name }}. The Wild Globalization Project.</p>
+			<p><a href="{{ links.lxp }}" rel="noopener">Already enrolled? Continue your journey{% icon "arrow-right", "link__icon" %}</a></p>
+		</div>
+	</div>
+</footer>

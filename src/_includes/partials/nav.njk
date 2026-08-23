@@ -1,0 +1,24 @@
+<header class="site-header" data-header>
+	<a class="brand" href="/">
+		<span class="brand__mark" aria-hidden="true"></span>
+		<span class="brand__text">
+			<span class="brand__primary">Wild Globalization</span>
+			<span class="brand__secondary">The Journey</span>
+		</span>
+	</a>
+
+	<button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+		<span class="nav-toggle__bar" aria-hidden="true"></span>
+		<span class="visually-hidden">Menu</span>
+	</button>
+
+	<nav class="site-nav" id="site-nav" data-nav aria-label="Wild Globalization network">
+		<ul class="site-nav__list">
+			{% for item in links.nav %}
+			<li><a href="{{ item.href }}" rel="noopener">{{ item.label }}</a></li>
+			{% endfor %}
+			<li><a href="#curriculum">Curriculum</a></li>
+		</ul>
+		<a class="button button--primary button--small" href="{{ links.enroll }}" rel="noopener">Enroll for free</a>
+	</nav>
+</header>

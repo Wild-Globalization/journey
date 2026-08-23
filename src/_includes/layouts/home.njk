@@ -1,0 +1,156 @@
+---
+layout: layouts/base.njk
+---
+<div class="e-content">
+<section class="section section--hero">
+	<div class="hero__media">
+		<img src="{{ hero.image }}" alt="{{ hero.alt }}" eleventy:widths="1280,1920" sizes="100vw" fetchpriority="high" loading="eager" decoding="async">
+	</div>
+	<div class="wrap hero__inner">
+		<p class="eyebrow eyebrow--onDark">{{ hero.eyebrow }}</p>
+		<h1 class="hero__title p-name">{{ hero.title }}</h1>
+		<p class="hero__lede p-summary">{{ hero.lede }}</p>
+		<p class="hero__text">{{ hero.text }}</p>
+		<div class="actions">
+			<a class="button button--accent" href="{{ links[hero.primary.key] }}" rel="noopener">{{ hero.primary.label }}{% icon "arrow-right", "button__icon" %}</a>
+			<a class="button button--ghost" href="{{ hero.secondary.href }}">{{ hero.secondary.label }}</a>
+		</div>
+		<dl class="hero__meta">
+			{% for stat in hero.meta %}
+			<div class="hero__stat">
+				<dt>{% icon stat.icon, "hero__stat-icon" %}{{ stat.label }}</dt>
+				<dd>{{ stat.value }}</dd>
+			</div>
+			{% endfor %}
+		</dl>
+	</div>
+</section>
+
+<section class="section section--accent">
+	<div class="wrap wrap--narrow">
+		<h2 class="section__title">{{ invitation.title }}</h2>
+		<p class="section__text">{{ invitation.text }}</p>
+	</div>
+</section>
+
+<section class="section section--primary" id="why">
+	<div class="wrap">
+		<div class="section__head">
+			<p class="eyebrow">{{ value.eyebrow }}</p>
+			<h2 class="section__title">{{ value.title }}</h2>
+			<p class="section__text">{{ value.text }}</p>
+		</div>
+		<ul class="cards">
+			{% for card in value.cards %}
+			<li class="card">
+				<p class="card__index">{% icon card.icon, "card__icon" %}</p>
+				<h3 class="card__title">{{ card.title }}</h3>
+				<p class="card__text">{{ card.text }}</p>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="section section--secondary" id="visionary">
+	<div class="wrap media-text p-author h-card">
+		<div class="media-text__media">
+			<img class="u-photo" src="{{ visionary.image }}" alt="{{ visionary.alt }}" eleventy:widths="640,1024" sizes="(min-width: 900px) 46vw, 100vw">
+		</div>
+		<div class="media-text__body">
+			<p class="eyebrow">{{ visionary.eyebrow }}</p>
+			<h2 class="section__title p-name">{{ visionary.title }}</h2>
+			<p class="p-job-title visually-hidden">{{ settings.instructor.jobTitle }}</p>
+			<p class="section__text p-note">{{ visionary.text }}</p>
+			<p class="section__text section__text--small">{{ visionary.bio }}</p>
+
+			<h3 class="hcard-links__heading">Learn about Gary</h3>
+			<ul class="hcard-links">
+				{% for item in visionary.links %}
+				<li>
+					<a class="u-url" href="{{ links[item.key] }}" rel="me noopener">{{ item.label }}{% icon "arrow-square-out", "link__icon" %}</a>
+					<span>{{ item.note }}</span>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="section section--primary" id="curriculum">
+	<div class="wrap">
+		<div class="section__head">
+			<p class="eyebrow">Course Curriculum</p>
+			<h2 class="section__title">{{ course.chapterCount }} Chapters &middot; {{ course.lessonCount }} Lessons</h2>
+			<p class="section__text">Every lesson is included in the free pilot. Expand a chapter to see what is inside.</p>
+			<button class="button button--ghost button--small" type="button" data-expand-all aria-expanded="false">Expand all chapters</button>
+		</div>
+
+		<ol class="curriculum">
+			{% for chapter in course.chapters %}
+			<li class="chapter">
+				<details class="chapter__details" data-chapter>
+					<summary class="chapter__summary">
+						<span class="chapter__number">{{ chapter.number }}</span>
+						<span class="chapter__heading">
+							<span class="chapter__title">{{ chapter.title }}</span>
+							<span class="chapter__blurb">{{ chapter.blurb }}</span>
+						</span>
+						<span class="chapter__count">{{ chapter.lessons | length }} {{ "lesson" if chapter.lessons | length == 1 else "lessons" }}</span>
+						{% icon "caret-down", "chapter__chevron" %}
+					</summary>
+					<ul class="chapter__lessons">
+						{% for lesson in chapter.lessons %}
+						<li><span class="chapter__lesson-free">Free</span>{{ lesson }}</li>
+						{% endfor %}
+					</ul>
+				</details>
+			</li>
+			{% endfor %}
+		</ol>
+	</div>
+</section>
+
+<section class="section section--secondary" id="how">
+	<div class="wrap">
+		<div class="section__head">
+			<p class="eyebrow">{{ steps.eyebrow }}</p>
+			<h2 class="section__title">{{ steps.title }}</h2>
+		</div>
+		<ol class="steps">
+			{% for step in steps.items %}
+			<li class="step">
+				<p class="step__number">{{ step.number }}</p>
+				<h3 class="step__title">{{ step.title }}</h3>
+				<p class="step__text">{{ step.text }}</p>
+			</li>
+			{% endfor %}
+		</ol>
+	</div>
+</section>
+
+<section class="section section--primary" id="faq">
+	<div class="wrap wrap--narrow">
+		<h2 class="section__title section__title--center">{{ faq.title }}</h2>
+		<div class="faq">
+			{% for item in faq.items %}
+			<details class="faq__item">
+				<summary>{{ item.q }}{% icon "caret-down", "chapter__chevron" %}</summary>
+				<p>{{ item.a }}</p>
+			</details>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section class="section section--cta" id="enroll">
+	<div class="wrap wrap--narrow">
+		<h2 class="section__title">{{ closing.title }}</h2>
+		<p class="section__text">{{ closing.text }}</p>
+		<div class="actions actions--center">
+			<a class="button button--accent button--large" href="{{ links[closing.primary.key] }}" rel="noopener">{{ closing.primary.label }}{% icon "arrow-right", "button__icon" %}</a>
+		</div>
+		<p class="section__note">{{ course.chapterCount }} chapters &middot; {{ course.lessonCount }} lessons &middot; {{ course.format }} &middot; {{ course.price }}</p>
+	</div>
+</section>
+</div>
