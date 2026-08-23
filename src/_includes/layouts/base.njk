@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="{{ settings.lang }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% if title %}{{ title }} — {{ settings.shortName }}{% else %}{{ settings.title }}{% endif %}</title>
+	<meta name="description" content="{{ description or settings.description }}">
+	<link rel="canonical" href="{{ page.url | absoluteUrl }}">
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="{{ settings.name }}">
+	<meta property="og:title" content="{{ title or settings.title }}">
+	<meta property="og:description" content="{{ description or settings.description }}">
+	<meta property="og:url" content="{{ page.url | absoluteUrl }}">
+	<meta property="og:locale" content="{{ settings.locale }}">
+	<meta property="og:image" content="{{ settings.image | absoluteUrl }}">
+	<meta property="og:image:alt" content="{{ settings.imageAlt }}">
+	<meta name="twitter:card" content="{{ settings.social.twitterCard }}">
+	<meta name="twitter:title" content="{{ title or settings.title }}">
+	<meta name="twitter:description" content="{{ description or settings.description }}">
+	<meta name="twitter:image" content="{{ settings.image | absoluteUrl }}">
+
+	<meta name="theme-color" content="#202651">
+
+	<link rel="stylesheet" href="/assets/css/index.css">
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "WebSite",
+				"@id": "{{ settings.canonicalUrl }}/#website",
+				"url": "{{ settings.url }}",
+				"name": {{ settings.name | json | safe }},
+				"description": {{ settings.description | json | safe }},
+				"inLanguage": "en",
+				"publisher": { "@id": {{ settings.provider.id | json | safe }} },
+				"about": { "@id": "{{ settings.canonicalUrl }}/#course" }
+			},
+			{
+				"@type": "Organization",
+				"@id": {{ settings.provider.id | json | safe }},
+				"name": {{ settings.provider.name | json | safe }},
+				"url": {{ settings.provider.url | json | safe }}
+			},
+			{
+				"@type": "Person",
+				"@id": {{ settings.instructor.id | json | safe }},
+				"name": {{ settings.instructor.name | json | safe }},
+				"url": {{ settings.instructor.url | json | safe }},
+				"jobTitle": {{ settings.instructor.jobTitle | json | safe }},
+				"description": {{ settings.instructor.description | json | safe }},
+				"image": {{ settings.instructor.image | json | safe }},
+				"sameAs": {{ settings.instructor.sameAs | json | safe }},
+				"worksFor": { "@id": {{ settings.provider.id | json | safe }} }
+			},
+			{
+				"@type": "Course",
+				"@id": "{{ settings.canonicalUrl }}/#course",
+				"name": {{ course.name | json | safe }},
+				"description": {{ settings.description | json | safe }},
+				"url": {{ links.course | json | safe }},
+				"inLanguage": "en",
+				"isAccessibleForFree": true,
+				"educationalLevel": "Beginner",
+				"teaches": "Globalization, ecology, technology, economy, governance, wealth, and learning as entangled historical forces",
+				"author": { "@id": {{ settings.instructor.id | json | safe }} },
+				"provider": { "@id": {{ settings.provider.id | json | safe }} },
+				"isPartOf": { "@id": "https://wildglobalization.com/#publication" },
+				"offers": {
+					"@type": "Offer",
+					"price": "0",
+					"priceCurrency": "USD",
+					"category": "Free",
+					"availability": "https://schema.org/InStock",
+					"url": {{ links.enroll | json | safe }}
+				},
+				"hasCourseInstance": {
+					"@type": "CourseInstance",
+					"courseMode": "online",
+					"courseWorkload": "PT10H"
+				},
+				"syllabusSections": [
+					{% for chapter in course.chapters -%}
+					{
+						"@type": "Syllabus",
+						"name": {{ chapter.title | json | safe }},
+						"description": {{ chapter.blurb | json | safe }},
+						"position": {{ chapter.number }}
+					}{% if not loop.last %},{% endif %}
+					{%- endfor %}
+				]
+			},
+			{
+				"@type": "FAQPage",
+				"@id": "{{ settings.canonicalUrl }}/#faq",
+				"mainEntity": [
+					{% for item in faq.items -%}
+					{
+						"@type": "Question",
+						"name": {{ item.q | json | safe }},
+						"acceptedAnswer": { "@type": "Answer", "text": {{ item.a | json | safe }} }
+					}{% if not loop.last %},{% endif %}
+					{%- endfor %}
+				]
+			}
+		]
+	}
+	</script>
+</head>
+<body>
+	{% iconSprite %}
+	<a class="skip-link" href="#main">Skip to content</a>
+	{% include "partials/nav.njk" %}
+	<main id="main" class="h-entry">
+		<link class="u-url" href="{{ page.url | absoluteUrl }}">
+		{{ content | safe }}
+	</main>
+	{% include "partials/footer.njk" %}
+	<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

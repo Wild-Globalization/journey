@@ -1,0 +1,53 @@
+name: "Wild Globalization Pilot"
+chapterCount: 5
+lessonCount: 26
+price: "Free"
+format: "Self-paced, online"
+
+chapters:
+  - number: 1
+    title: "Wild Globalization"
+    blurb: "The frame: why globalization is better read as a wild force than a policy program."
+    lessons:
+      - "Introduction"
+  - number: 2
+    title: "Wild Ecology"
+    blurb: "Deep time, rewilding, and the ecological systems that still set the terms of human life."
+    lessons:
+      - "Introduction"
+      - "Perspective 1: Rewilding the Human"
+      - "Perspective 2: Understanding Human Time"
+      - "Perspective 3: How the Wild Works"
+      - "Perspective 4: Scaling Wild Ecology"
+      - "Perspective 5: The Ethical Imperative of the Wild"
+  - number: 3
+    title: "Wild Technology & Economy"
+    blurb: "Tools, markets, and the entangled forces that turn invention into planetary consequence."
+    lessons:
+      - "Introduction"
+      - "Perspective 1: The Nature of Wild Tech"
+      - "Perspective 2: Tech and Economy in Human Time"
+      - "Perspective 3: Entangled Forces of Globalization"
+      - "Perspective 4: Scaling Power and Turning Points"
+      - "Perspective 5: Knowing and Guiding Wild Tech"
+  - number: 4
+    title: "Wild Governance & Wealth"
+    blurb: "Who decides, who accumulates, and what both look like in the Anthropocene."
+    lessons:
+      - "Introduction"
+      - "Perspective 1: The Wild Logic of Governance"
+      - "Perspective 2: Wealth in the Anthropocene"
+      - "Perspective 3: The Ripple Effect"
+      - "Perspective 4: When the Wild Multiplies"
+      - "Perspective 5: Wild Wisdom for Wealth and Governance"
+  - number: 5
+    title: "Wild Learning"
+    blurb: "How humans learn at scale, what exponential learning risks, and where that leaves us with AI."
+    lessons:
+      - "Introduction"
+      - "Perspective 1: The Origins of Wild Learning"
+      - "Perspective 2: How Wild Learning Works"
+      - "Perspective 3: Learning in a Connected World"
+      - "Perspective 4: The Power and Risk of Exponential Learning"
+      - "Perspective 5: Where Wild Learning Leaves Us"
+      - "Post-Pilot Survey"

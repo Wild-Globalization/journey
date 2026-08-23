@@ -1,0 +1,42 @@
+# Every outbound destination in one place.
+enroll: "https://wildglobalization.thinkific.com/enroll/3674011"
+course: "https://wildglobalization.thinkific.com/products/courses/wild-globalization-pilot"
+lxp: "https://wildglobalization.thinkific.com/"
+project: "https://wildglobalization.com/"
+blog: "https://explore.wildglobalization.com/"
+foundation: "https://thewhitestonefoundation.org/"
+author: "https://www.garybedford.com/"
+
+nav:
+  - label: "The Project"
+    href: "https://wildglobalization.com/"
+  - label: "Explore"
+    href: "https://explore.wildglobalization.com/"
+  - label: "The Foundation"
+    href: "https://thewhitestonefoundation.org/"
+
+footer:
+  - heading: "Wild Globalization"
+    items:
+      - label: "The Project"
+        href: "https://wildglobalization.com/"
+        note: "The book, the six forces, the field guide."
+      - label: "Explore — the blog"
+        href: "https://explore.wildglobalization.com/"
+        note: "Concise dispatches on globalization and ecology."
+  - heading: "Learn"
+    items:
+      - label: "The Journey (LXP)"
+        href: "https://wildglobalization.thinkific.com/"
+        note: "Your course dashboard and lessons."
+      - label: "Enroll for free"
+        href: "https://wildglobalization.thinkific.com/enroll/3674011"
+        note: "Five chapters. Twenty-six lessons. No cost."
+  - heading: "Who We Are"
+    items:
+      - label: "The Whitestone Foundation"
+        href: "https://thewhitestonefoundation.org/"
+        note: "The nonprofit behind the work."
+      - label: "Gary Bedford"
+        href: "https://www.garybedford.com/"
+        note: "Course author and Visionary."

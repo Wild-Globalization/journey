@@ -1,0 +1,28 @@
+{
+  "name": "journey.wildglobalization.com",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Splash page for the Wild Globalization course journey.",
+  "scripts": {
+    "build": "buildawesome",
+    "dev": "buildawesome --serve",
+    "start": "buildawesome --serve"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "7.0.0",
+    "@awesome.me/buildawesome": "^4.0.0-alpha.10",
+    "js-yaml": "4.3.1",
+    "markdown-it": "^14.2.0",
+    "markdown-it-attrs": "^4.3.1"
+  },
+  "overrides": {
+    "undici": "~7.28.0"
+  },
+  "allowScripts": {
+    "sharp@0.33.5": true
+  }
+}
