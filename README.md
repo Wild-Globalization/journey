@@ -1,3 +1,5 @@
+[![Deploy Eleventy to XMIT](https://github.com/Wild-Globalization/journey/actions/workflows/xmit-deploy.yml/badge.svg)](https://github.com/Wild-Globalization/journey/actions/workflows/xmit-deploy.yml)
+
 # [journey.wildglobalization.com](https://journey.wildglobalization.com)
 
 Splash page for the **Wild Globalization Pilot** course. Its one job is to sell the
