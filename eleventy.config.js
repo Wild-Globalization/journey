@@ -45,8 +45,11 @@ export default async function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy('src/assets/css');
 	eleventyConfig.addPassthroughCopy('src/assets/js');
+	eleventyConfig.addPassthroughCopy({ 'src/assets/favicons': '/' });
 	eleventyConfig.addPassthroughCopy({ 'src/assets/img/course-card.png': 'assets/img/course-card.png' });
+	eleventyConfig.addPassthroughCopy({ 'src/assets/img/atlas.svg': 'assets/img/atlas.svg' });
 	eleventyConfig.addPassthroughCopy({ 'src/_headers': '_headers' });
+	eleventyConfig.addPassthroughCopy({ 'src/xmit.toml': 'xmit.toml' });
 
 	eleventyConfig.addDataExtension('yml,yaml', (contents) => yaml.load(contents));
 

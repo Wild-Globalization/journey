@@ -1,0 +1,23 @@
+{
+	"name": "Journey — Wild Globalization",
+	"short_name": "Journey",
+	"description": "A free course tracing globalization as an entangled history of ecology, technology, economy, governance, wealth, and learning.",
+	"id": "/",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#f2f3f5",
+	"theme_color": "#202651",
+	"icons": [
+		{
+			"src": "/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

@@ -12,7 +12,7 @@ layout: layouts/base.njk
 		<p class="hero__lede p-summary">{{ hero.lede }}</p>
 		<p class="hero__text">{{ hero.text }}</p>
 		<div class="actions">
-			<a class="button button--accent" href="{{ links[hero.primary.key] }}" rel="noopener">{{ hero.primary.label }}{% icon "arrow-right", "button__icon" %}</a>
+			<a class="button button--accent" href="{{ links[hero.primary.key] }}" rel="noopener">{{ hero.primary.label }}{% icon "la-graduation-cap", "button__icon" %}</a>
 			<a class="button button--ghost" href="{{ hero.secondary.href }}">{{ hero.secondary.label }}</a>
 		</div>
 		<dl class="hero__meta">
@@ -148,7 +148,7 @@ layout: layouts/base.njk
 		<h2 class="section__title">{{ closing.title }}</h2>
 		<p class="section__text">{{ closing.text }}</p>
 		<div class="actions actions--center">
-			<a class="button button--accent button--large" href="{{ links[closing.primary.key] }}" rel="noopener">{{ closing.primary.label }}{% icon "arrow-right", "button__icon" %}</a>
+			<a class="button button--accent button--large" href="{{ links[closing.primary.key] }}" rel="noopener">{{ closing.primary.label }}{% icon "la-graduation-cap", "button__icon" %}</a>
 		</div>
 		<p class="section__note">{{ course.chapterCount }} chapters &middot; {{ course.lessonCount }} lessons &middot; {{ course.format }} &middot; {{ course.price }}</p>
 	</div>

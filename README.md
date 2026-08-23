@@ -29,6 +29,11 @@ in [`src/_data/icons.js`](src/_data/icons.js) so nothing is fetched at runtime. 
 them with `{% raw %}{% icon "books" %}{% endraw %}`; add a name to `icons.js` from
 `@phosphor-icons/core/assets/regular/<name>.svg` when you need one that isn't there.
 
+The yellow header mark and SVG favicon use `la-atlas`, and the enrollment
+buttons use `la-graduation-cap`, from
+[Icons8 Line Awesome](https://github.com/icons8/line-awesome), licensed under the
+[MIT License](https://github.com/icons8/line-awesome/blob/master/LICENSE.md).
+
 If either upstream theme changes, re-read its `:root` block and update the top of
 [`src/assets/css/index.css`](src/assets/css/index.css) to match.
 

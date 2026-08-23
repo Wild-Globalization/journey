@@ -28,9 +28,9 @@
 	--cta-bg-hover: #171d40;
 	--accent-bg-hover: #e0ac31;
 	--accent-ink: #241f0a;
-	--accent-ink-soft: #8a6b12;
+	--accent-ink-soft: #75590c;
 	--footer-bg: #171b38;
-	--ink-dim: #6b6f80;
+	--ink-dim: #5f6272;
 	--on-dark: #ffffff;
 	--on-dark-body: rgba(255, 255, 255, 0.88);
 	--on-dark-muted: rgba(255, 255, 255, 0.8);
@@ -59,7 +59,6 @@
 	--section-space: clamp(3.5rem, 7vw, 6.5rem);
 	--gutter: clamp(1.25rem, 5vw, 3rem);
 	--border: 1px solid var(--input-border-color);
-	--ink-dim: #6b6f80;
 }
 
 * {
@@ -121,6 +120,7 @@ a {
 :focus-visible {
 	outline: 3px solid var(--accent-bg-color);
 	outline-offset: 3px;
+	box-shadow: 0 0 0 6px var(--cta-bg-color);
 }
 
 .visually-hidden {
@@ -292,9 +292,10 @@ a {
 }
 
 .brand__mark {
-	width: 0.85rem;
+	width: 2.1rem;
 	height: 2.1rem;
-	background: var(--accent-bg-color);
+	fill: var(--accent-bg-color);
+	flex: 0 0 auto;
 }
 
 .brand__text {
