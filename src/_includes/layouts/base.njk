@@ -5,7 +5,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{% if title %}{{ title }} — {{ settings.shortName }}{% else %}{{ settings.title }}{% endif %}</title>
 	<meta name="description" content="{{ description or settings.description }}">
+	<meta name="generator" content="{{ generator.name }} {{ generator.version }}">
 	<link rel="canonical" href="{{ page.url | absoluteUrl }}">
+
+	<meta name="citation_title" content="{{ title or settings.title }}">
+	<meta name="citation_author" content="Bedford, Gary">
+	<meta name="citation_publication_date" content="{{ settings.datePublished }}">
+	<meta name="citation_public_url" content="{{ page.url | absoluteUrl }}">
+	<meta name="DC.title" content="{{ title or settings.title }}">
+	<meta name="DC.creator" content="Gary Bedford">
+	<meta name="DC.publisher" content="{{ settings.project.name }}">
+	<meta name="DC.type" content="Text">
+	<meta name="DC.language" content="{{ settings.lang }}">
+	<meta name="DC.identifier" content="{{ page.url | absoluteUrl }}">
 
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="{{ settings.name }}">
@@ -36,24 +48,50 @@
 				"description": {{ settings.description | json | safe }},
 				"inLanguage": "en",
 				"publisher": { "@id": {{ settings.provider.id | json | safe }} },
+				"author": { "@id": {{ settings.instructor.id | json | safe }} },
+				"datePublished": {{ settings.datePublished | json | safe }},
+				"dateModified": {{ buildDate | isoDate | json | safe }},
+				"copyrightHolder": [
+					{ "@id": {{ settings.instructor.id | json | safe }} },
+					{ "@type": "Organization", "name": {{ settings.project.name | json | safe }}, "url": {{ settings.project.url | json | safe }} }
+				],
+				"copyrightYear": {{ buildDate | year }},
 				"about": { "@id": "{{ settings.canonicalUrl }}/#course" }
 			},
 			{
 				"@type": "Organization",
 				"@id": {{ settings.provider.id | json | safe }},
 				"name": {{ settings.provider.name | json | safe }},
-				"url": {{ settings.provider.url | json | safe }}
+				"alternateName": {{ settings.provider.alternateName | json | safe }},
+				"url": {{ settings.provider.url | json | safe }},
+				"description": {{ settings.provider.description | json | safe }},
+				"nonprofitStatus": "https://schema.org/Nonprofit501c3",
+				"address": {{ settings.provider.address | json | safe }},
+				"publishingPrinciples": {{ settings.provider.publishingPrinciples | json | safe }},
+				"publishes": {{ settings.provider.publications | json | safe }}
 			},
 			{
 				"@type": "Person",
 				"@id": {{ settings.instructor.id | json | safe }},
 				"name": {{ settings.instructor.name | json | safe }},
+				"givenName": {{ settings.instructor.givenName | json | safe }},
+				"familyName": {{ settings.instructor.familyName | json | safe }},
+				"honorificSuffix": {{ settings.instructor.honorificSuffix | json | safe }},
 				"url": {{ settings.instructor.url | json | safe }},
 				"jobTitle": {{ settings.instructor.jobTitle | json | safe }},
 				"description": {{ settings.instructor.description | json | safe }},
 				"image": {{ settings.instructor.image | json | safe }},
+				"email": {{ settings.instructor.email | json | safe }},
 				"sameAs": {{ settings.instructor.sameAs | json | safe }},
-				"worksFor": { "@id": {{ settings.provider.id | json | safe }} }
+				"homeLocation": {{ settings.instructor.homeLocation | json | safe }},
+				"alumniOf": {{ settings.instructor.alumniOf | json | safe }},
+				"hasCredential": {{ settings.instructor.hasCredential | json | safe }},
+				"knowsAbout": {{ settings.instructor.knowsAbout | json | safe }},
+				"publishingPrinciples": {{ settings.instructor.publishingPrinciples | json | safe }},
+				"colleague": {{ settings.instructor.colleague | json | safe }},
+				"memberOf": { "@id": {{ settings.provider.id | json | safe }} },
+				"hasOccupation": {{ settings.instructor.hasOccupation | json | safe }},
+				"subjectOf": {{ settings.instructor.subjectOf | json | safe }}
 			},
 			{
 				"@type": "Course",
@@ -112,6 +150,7 @@
 <body>
 	{% iconSprite %}
 	<a class="skip-link" href="#main">Skip to content</a>
+	<span class="Z3988 visually-hidden" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:dc&amp;rft.title={{ (title or settings.title) | urlencode }}&amp;rft.creator=Gary%20Bedford&amp;rft.publisher={{ settings.project.name | urlencode }}&amp;rft.identifier={{ (page.url | absoluteUrl) | urlencode }}"></span>
 	{% include "partials/nav.njk" %}
 	<main id="main" class="h-entry">
 		<link class="u-url" href="{{ page.url | absoluteUrl }}">

@@ -1,12 +1,14 @@
 import yaml from 'js-yaml';
 import markdownIt from 'markdown-it';
 import markdownItAttrs from 'markdown-it-attrs';
+import { readFileSync } from 'node:fs';
 import { IdAttributePlugin } from '@11ty/eleventy';
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 import settings from './src/_data/settings.js';
 import icons from './src/_data/icons.js';
 
 const siteUrl = settings.url.replace(/\/$/, '');
+const buildAwesome = JSON.parse(readFileSync(new URL('../package.json', import.meta.resolve('@awesome.me/buildawesome'))));
 
 function absoluteUrl(path = '/') {
 	return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`;
@@ -49,10 +51,13 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addDataExtension('yml,yaml', (contents) => yaml.load(contents));
 
 	eleventyConfig.addGlobalData('buildDate', new Date());
+	eleventyConfig.addGlobalData('generator', { name: 'Build.Awesome', version: buildAwesome.version });
 	eleventyConfig.addFilter('absoluteUrl', absoluteUrl);
 	eleventyConfig.addFilter('fullUrl', absoluteUrl);
 	eleventyConfig.addFilter('json', (value) => JSON.stringify(value));
 	eleventyConfig.addFilter('year', (value) => new Date(value).getUTCFullYear());
+	eleventyConfig.addFilter('isoDate', (value) => new Date(value).toISOString());
+	eleventyConfig.addFilter('urlencode', (value) => encodeURIComponent(String(value ?? '')));
 	eleventyConfig.addShortcode('currentBuildDate', () => new Date().toISOString());
 
 	// {% icon "books" %} -> one <use> into the sprite in base.njk. Decorative by
