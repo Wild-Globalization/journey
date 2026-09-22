@@ -1,0 +1,8 @@
+Source-Organization: The Whitestone Foundation
+Contact-Name: Adam DJ Brett
+Contact-Email: adam@adamdjbrett.com
+External-Description: Source for journey.wildglobalization.com, the splash page and entry point for the Wild Globalization course journey.
+External-Identifier: https://github.com/Wild-Globalization/journey
+External-Identifier: https://journey.wildglobalization.com/
+Bag-Group-Identifier: Wild Globalization
+Bag-Count: 1 of 1
